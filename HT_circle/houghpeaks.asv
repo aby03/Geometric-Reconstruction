@@ -1,8 +1,7 @@
 function peaks = houghpeaks(h, radii, thresh_val, nhoodxy, nhoodr, npeaks)
 
 threshold = thresh_val * max(h(:));
-global t5;
-t5 = nhoodr;
+global t5
 if isempty(nhoodxy) && isempty(nhoodr)
     % First approach to peak finding: local maxima
     
