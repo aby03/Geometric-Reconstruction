@@ -1,0 +1,36 @@
+Ubuntu 16.04
+
+1. Install Miniconda. (Python 3.6. Linux. 64-bit bash installer)
+https://conda.io/miniconda.html
+
+2. Install tensorflow.
+	2.1 open terminal and enter
+		-$ conda create -n tensorflow pip python=3.6
+		-$ source activate tensorflow
+		-$ pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.6.0-cp36-cp36m-linux_x86_64.whl
+	2.2 Install dependencies(sudo if needed)
+		-SOURCE: https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md
+		-$ sudo apt-get install protobuf-compiler python-pil python-lxml python-tk
+		-$ pip install jupyter
+		-$ pip install matplotlib
+		-$ pip install Pillow
+	2.3 Clone 'tensorflow/models' in 'miniconda3/envs/tensorflow/' directory
+		-https://github.com/tensorflow/models
+	2.4 Protobuf Compilation
+		-From dir 'miniconda3/envs/tensorflow/models/research/'
+		-$ protoc object_detection/protos/*.proto --python_out=.
+	2.5 Add libs to PYTHONPATH (RUN EVERY TIME!!! or ADD TO .bashrc)
+		-From dir 'miniconda3/envs/tensorflow/models/research/'
+		-$ export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
+		-OR RUN $ export PYTHONPATH=$PYTHONPATH:/home/aby03/Softwares/miniconda3/envs/tensorflow/models/research:/home/aby03/Softwares/miniconda3/envs/tensorflow/models/research/slim
+
+3. Check Installation.
+	-From directory 'models/research/'
+	-$ python object_detection/builders/model_builder_test.py
+
+=========== Files Dependencies =============
+1. xml_to_csv.py
+	-pip install pandas
+2. app_ip_cam_video.py
+	-pip install opencv-python
+	-pip install imutlis

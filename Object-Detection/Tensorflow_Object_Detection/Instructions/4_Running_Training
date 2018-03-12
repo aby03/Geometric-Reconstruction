@@ -1,0 +1,15 @@
+1. From dir tensorflow/models/research
+	-$ python object_detection/train.py \
+	    --logtostderr \
+	    --pipeline_config_path=1_A_v1.0/pipeline.config \
+	    --train_dir=1_A_v1.0/custom_trained
+	-$ python object_detection/eval.py \
+	    --logtostderr \
+	    --pipeline_config_path=1_A_v1.0/pipeline.config \
+	    --checkpoint_dir=1_A_v1.0/custom_trained
+	    --train_eval=1_A_v1.0/custom_eval
+
+2. PROBLEM: Training was ultra slow when input images were not resized to 400x400. loading full size image and resizing to 400x400 not efficient during training. Laptop was getting stuck.
+	-FIX: Added resize step in preparing inputs
+
+3. PROBLEM: In running evaluation

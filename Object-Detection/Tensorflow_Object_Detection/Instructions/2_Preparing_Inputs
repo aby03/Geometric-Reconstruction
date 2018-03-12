@@ -1,0 +1,26 @@
+1. Download 'labelImg' tool to label images
+	-Go to https://tzutalin.github.io/labelImg/
+	-Download Linux_v1.4.3
+
+2. Resize Images
+	-From dir models/research/1_A_v1.0
+	-Use resize_img.py/resize_img_folder.py
+	-Set images/images_sub_directories directory path
+	-$ python resize_img_folder.py
+3. Run labelImg
+	-$ sudo ./labelImg
+	-Open directory having images to label
+	-Label all images
+
+4. Convert images and labels to csv file
+	-$ python xml_to_csv.py --image_path <LABELLED_IMGS_DIR> --csv_file <Name_of_csv_file>
+	-Example: $ python xml_to_csv.py --image_path Database/1_A/labelled_images/train --csv_file labels_train.csv
+	-$ python xml_to_csv.py --image_path Database/1_A/labelled_images/validation --csv_file labels_valid.csv
+
+5. Create label.pbtxt (File containing list of all labels)(See Sample File)
+
+6. Convert csv to tfrecord (for training and testing)
+	-Generate training set
+	-$ python generate_tfrecord.py --csv_input=labels_train.csv  --output_path=train.record --label_map=label.pbtxt --image_path=Database/1_A/labelled_images/train
+	-Generate testing set
+	-$ python generate_tfrecord.py --csv_input=labels_valid.csv  --output_path=test.record --label_map=label.pbtxt --image_path=Database/1_A/labelled_images/validation

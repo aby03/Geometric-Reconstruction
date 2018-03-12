@@ -1,0 +1,44 @@
+item{
+  id: 1
+  name: 'door'
+}
+
+item{
+  id: 2
+  name: 'exit_sym'
+}
+
+item{
+  id: 3
+  name: 'female_washroom'
+}
+
+item{
+  id: 4
+  name: 'fire_exit'
+}
+
+item{
+  id: 5
+  name: 'male_washroom'
+}
+
+item{
+  id: 6
+  name: 'pd_washroom'
+}
+
+item{
+  id: 7
+  name: 'stairs_down'
+}
+
+item{
+  id: 8
+  name: 'stairs_up'
+}
+
+item{
+  id: 9
+  name: 'toilet_sign'
+}
