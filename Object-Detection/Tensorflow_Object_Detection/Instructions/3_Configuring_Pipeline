@@ -1,0 +1,6 @@
+1. Download and edit sample config file of pre-trained model you are training
+2. Set num_classes
+3. Set fine_tune_checkpoint
+4. Set label_map_path
+5. Set input_path
+6. Replace PATH_TO_BE_CONFIGURED appropriately.
